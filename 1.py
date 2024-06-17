@@ -1,15 +1,16 @@
+import tkinter as tk
+
 def click():
+    global i
+    global result1
+    result1.delete(0, 'end')
+    if i <= 10:
+        result1.insert(0, i)
+        i += 1
+    else:
+        result1.insert(0,"YOU LOSE")
 
-    result1.delete(0, -1)
-    result1.insert(0)
-    '''
-    while i < 10:
-        if i < 10:
-            i += 1
-            print(i)
-    return "YOU LOSE"
-    '''
-
+i = 0
 window = tk.Tk()
 window.title('Hamster Kombat')
 window.geometry('520x520')
@@ -21,7 +22,7 @@ button_hamster = tk.Button(window, text='┈┈╱╲╱▔▔▔╲╱╲'
                                         '\n┈┈┈┈┈╲┳┳┳╯┈╱┈╱┈▏┈╱'
                                         '\n┈┈┈┈╱┗┻┛▔▔┈┈╲╱┈╱'
                                         '\n┈┈╱┈┈╭┈┈┈╮▕┈┈╱'
-                                        '\n╱┈╱▏┊┈┈┈┊▕▔▔', foreground="blue", )
+                                        '\n╱┈╱▏┊┈┈┈┊▕▔▔', foreground="blue", command=click)
 button_hamster.place(x=150, y=150, width=230, height=230)
 result1 = tk.Entry(window, width=38)
 result1.place(x=150, y=100)
